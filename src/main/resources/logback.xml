@@ -1,0 +1,22 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 1. Уровень для всего приложения (ставим ERROR или WARN) -->
+    <root level="ERROR">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- 2. Выключаем INFO от самого Hibernate -->
+    <logger name="org.hibernate" level="WARN" />
+
+    <!-- 3. Если хотите видеть только SQL (без служебной информации) -->
+    <logger name="org.hibernate.SQL" level="DEBUG" />
+
+    <!-- 4. Если нужно видеть значения параметров в SQL (необязательно) -->
+    <!-- <logger name="org.hibernate.orm.jdbc.bind" level="TRACE" /> -->
+
+</configuration>
