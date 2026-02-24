@@ -23,17 +23,17 @@ public class User {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    // 1. Пустой конструктор (обязателен для Hibernate)
+
     public User() {}
 
-    // 2. Конструктор для удобства создания
+
     public User(String name, String email, Integer age) {
         this.name = name;
         this.email = email;
         this.age = age;
     }
 
-    // 3. Геттеры и Сеттеры (Стандарт Java)
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -48,7 +48,6 @@ public class User {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
 
-    // То же самое, что @ToString в Lombok
     @Override
     public String toString() {
         return "User{id=" + id + ", name='" + name + "', email='" + email + "', age=" + age + "}";

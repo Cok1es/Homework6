@@ -23,15 +23,14 @@ class UserDAOIT { // IT - Integration Test
 
     @BeforeAll
     static void setup() {
-        // Динамически меняем настройки Hibernate под контейнер
+
         Configuration configuration = new Configuration().configure();
         configuration.setProperty("hibernate.connection.url", postgres.getJdbcUrl());
         configuration.setProperty("hibernate.connection.username", postgres.getUsername());
         configuration.setProperty("hibernate.connection.password", postgres.getPassword());
         configuration.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 
-        // Пересоздаем SessionFactory для тестов (в идеале добавить метод в HibernateUtil)
-        // HibernateUtil.setTestConfiguration(configuration);
+
         userDAO = new UserDAO();
     }
 

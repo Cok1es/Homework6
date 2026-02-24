@@ -11,7 +11,7 @@ public class Main {
         while (true) {
             System.out.println("\n--- Меню: 1.Создать 2.Список 3.Найти 4.Обновить 5.Удалить 0.Выход ---");
             int choice = sc.nextInt();
-            sc.nextLine(); // очистка буфера
+            sc.nextLine();
 
             if (choice == 0) break;
 

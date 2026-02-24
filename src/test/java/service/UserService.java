@@ -7,7 +7,7 @@ import java.util.List;
 public class UserService {
     private final UserDAO userDAO;
 
-    // Конструктор для внедрения зависимости (важно для Mockito!)
+
     public UserService(UserDAO userDAO) {
         this.userDAO = userDAO;
     }

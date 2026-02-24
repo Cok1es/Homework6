@@ -11,26 +11,26 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class) // Подключает Mockito к JUnit 5
+@ExtendWith(MockitoExtension.class)
 class UserServiceTest {
 
     @Mock
-    private UserDAO userDAO; // Создаем "куклу" (заглушку) для DAO
+    private UserDAO userDAO;
 
     @InjectMocks
-    private UserService userService; // Сюда Mockito само вставит наш мок выше
+    private UserService userService;
 
     @Test
     void shouldFailWhenUserIsUnderage() {
-        // Создаем пользователя, который не пройдет валидацию
+
         User youngUser = new User("Kid", "kid@test.com", 10);
 
-        // Проверяем, что выкидывается ошибка
+
         assertThrows(IllegalArgumentException.class, () -> {
             userService.registerUser(youngUser);
         });
 
-        // Проверяем, что DAO метод save НИ РАЗУ не вызывался
+
         verify(userDAO, never()).save(any());
     }
 
@@ -40,7 +40,7 @@ class UserServiceTest {
 
         userService.registerUser(adultUser);
 
-        // Проверяем, что сервис действительно вызвал метод save у DAO
+
         verify(userDAO, times(1)).save(adultUser);
     }
 }
