@@ -1,6 +1,5 @@
 package service;
 
-import dao.UserDAO;
 import model.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
